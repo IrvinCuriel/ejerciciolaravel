@@ -1,0 +1,63 @@
+************************LARAVEL************************************
+npm run dev
+npm run watch
+php artisan serve
+
+******************React MERN************************************
+1. se  crear carpeta MERN tasks y dentro se realiza:
+
+//////////////////carpeta cliente //////////////////////////
+npx create-react-app cliente
+npm i react-router-dom
+npm start
+
+
+//////////////////carpeta servidor //////////////////////////
+//Se crea carpeta servidor
+//(Node)
+npm init
+//(crea package.json)
+npm install -D nodemon
+npm i express mogoose dotenv
+//mogoose el ORM para mongo
+//doteenv ayuda  crear variables de entorno. para produccion unas y para desarrollo otras
+//Se configura scripts en package.json (dev:nodemon)
+
+npm run dev
+
+//configurar servidor de Express:
+//en archivo index.js
+const express = require('express');
+se crea el servidor
+const app = express();
+const PORT = process.env.PORT || 4000; //servidor
+
+//definir la pagina principal
+app.get('/', (req, res) => {
+	res.send('Hola mundo')
+});
+
+//arrancar la app
+app.listen(PORT, () => {
+	console.log(`El servidor esta funcionando en el puerto ${PORT}`);
+});
+
+
+******************React-Redux************************************
+npx create-react-app crudereux 
+npm start
+
+******************React Next.JS******************************
+npx create-next-app pruducthuntnex
+npm run dev
+
+npm run build (para produccion)
+npm run start (para produccion) vs npm run dev
+
+
+**********************PHP LAMP********************************
+admin_luis
+http://localhost:8080/IntegracionSys/adminalmacen/login.php
+
+
+
