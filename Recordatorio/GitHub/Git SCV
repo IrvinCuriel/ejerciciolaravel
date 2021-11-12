@@ -439,3 +439,17 @@ push para subir cambios locales al servidor github
 pull para descargar los cambios de github al repositorio local
 
 ***********************************************************************************************************
+
+AGREGADO 12-NOV-21
+
+ 1702  git config --list
+ 1703  git config --global user.name "IrvinCuriel"
+ 1704  git config --global user.email "acoirvin@gmail.com"
+ 1705  git config --list
+ 1706  clear
+ 1707  git remote add origin https://github.com/IrvinCuriel/ejerciciolaravel.git
+ 1708  git branch
+ 1709  git checkout master
+ 1710  git push origin master
+ 1711  git pull origin master
+

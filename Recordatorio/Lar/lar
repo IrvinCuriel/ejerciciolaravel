@@ -5535,15 +5535,6 @@ https://demo.dashboardpack.com/architectui-vue-pro/#/forms/sticky-headers
  2013  clear
  2014  history
 
-:~/Desktop/IntSystems/adminos$ php artisan passport:install
-Encryption keys already exist. Use the --force option to overwrite them.
-Personal access client created successfully.
-Client ID: 1
-Client secret: 4ZOT3zmHuPMvqfAvUPjN5QEmjgv19BWDAwJppn1E
-Password grant client created successfully.
-Client ID: 2
-Client secret: 8Pz78rPqRGhUUj0pkJtTS9y8XXU2731Y3IxjNf11
-:~/Desktop/IntSystems/adminos$
 
 :~/Desktop/IntSystems/adminos$ php artisan passport:install
 Encryption keys already exist. Use the --force option to overwrite them.
@@ -5554,6 +5545,16 @@ Password grant client created successfully.
 Client ID: 2
 Client secret: 0iTg4cNTXq12cT1gnStBMnZLM6BAJCoizXTibIN5
 :~/Desktop/IntSystems/adminos$
+
+irvin@irvin-X455LAB:~/Desktop/IntSystems/adminos$ php artisan passport:install
+Encryption keys already exist. Use the --force option to overwrite them.
+Personal access client created successfully.
+Client ID: 1
+Client secret: s172urVtSksWopsY7Fl7iCbnFqpb1dgDg92ghTRZ
+Password grant client created successfully.
+Client ID: 2
+Client secret: fRwC2cAeagbe80I4uRu9U8qA0M6TU4VcVZFpXNY9
+
 
 ***************************************************************************************************************************************
 Eventos y Listeners
@@ -5572,4 +5573,7 @@ https://www.youtube.com/watch?v=i9P1TS8z29A
 //return response()->json($request);
 ***************************************************************************************************************************************
 
+***************************************************************************************************************************************
+Revisar
+https://www.youtube.com/watch?v=3nLdc0NBiH8&list=PLR3-1he9bGShZT1FUMnVogdYNLbcK_Vp3&index=2
 ***************************************************************************************************************************************
