@@ -1,6 +1,7 @@
+***********************************************************************
+CONFIGURAR USUARIO
 
 git --version
-
 git config --global user.name "LuisGutierrezex"
 git config --global user.email "<correo@correo.com>"
 
@@ -8,40 +9,44 @@ git config --global user.email "<correo@correo.com>"
 git config --list
 
 //Comando de ayuda
-git help init
+git help
+git help init (crea o reinicializa)
 
-//Crear un repositorio
-//Inicializar un repositorio
+***********************************************************************
+
+//Crear un repositorio ó Inicializar un repositorio
 git init
 
-
-//Clonar un repositorio
+//Clonar un repositorio (local)
 git clone ./SeccionMYSQL/ proyectoclonado
 cd proyectoclonado/
 git status
 
+//Clonar un repositorio (nube)
 git clone https://github.com/IrvinCuriel/Pruebas-JS.git proyectoclonadonube
 
+***********************************************************************
+
 //ir a miproyecto
-git status
-git add
+git status: muestra Untracked files y Changes to be committed
+git add images: añade los untraked files a Changes to be committed
 
- //para quitar un file "git rm --cached <file>..." 
- git rm --cached b_65consola.js
- git rm --cached d_many_pizzas
-
-git status
+//para quitar un file "git rm --cached <file>..." 
+archivos que ya estan como to be committed los pasa a Untracked files
+git rm --cached b_65consola.js
+git rm --cached d_many_pizzas
 
 // agregar uno por uno 
 git add a_consola_completo.js
-git add b_consola500.js
 git add	b_console.js
-...etc
 
 // agregar todos lo archivos
 git add .
 
-// Descartar cambios
+***********************************************************************
+CHECKOUT, DIFF, IGNORE
+
+// Descartar cambios (Restaurar cambios) quita/BORRA los cambios de Untracked files
 git checkout pagina.html
 
 // ver los cambios que presenta un modified
@@ -49,11 +54,14 @@ git status
 git diff pagina1.html
 
 // git ignore
-Crear fichero gitignore 
+Crear fichero .gitignore 
 en fichero se indica los archivos que se ignoraran
-ejemplo:
+ejemplo: (nombre del fichero a partir de la carpeta)
 teoria JavaScript.txt
 node-js-es.pdf
+
+***********************************************************************
+COMMIT 
 
 //commit y versiones
 1. primero hacer un add de todos los archivos que se quiran commitear
@@ -62,112 +70,84 @@ git status
 git log --oneline (aparece el commit que se realizo previamente)
 git log ( se ve toda la descripccion del commit autor, fecha)
 
-commit a todo junto con add: 
+***********************************************************************
+
+//commit a todo junto con add: 
 git commit -am "commit a todo"
 
-comparar un commit con otro:
+//comparar un commit con otro:
 git log --oneline (aparecen los commit que podremos comparar)
 git diff 23fvfv 234fff
 
+***********************************************************************
+REGRESAR DE Changes to be committed A Untracked files (antes del commit)
+
 //Reset y checkout (antes del commit)
-git status
-git add .
-git status
-	modified: index.html
 git reset HEAD index.html
-git status
-	modified: index.html
 
-otra forma:
-git add. index.html
+//otra forma: (antes del commit)
 git reset .
-git status
-modified: index.html
 
-ficehro para que quede como estaba inicialmente:
+//checkout (antes del commit)
+quita/BORRA los cambios de Untracked files
 git checkout index.html
 
+***********************************************************************
+DESHACER COMMIT (ELIMINA LOS COMMIT QUE SA SALTA)
 
 //Deshacer commit
-git status
-git commit -am "añadiendo algo"
-git log --oneline
-*para cambiar que el penultimo commit aparezca como ultimo commit:
-git reset --hard HEAD
-git status
-git log
-*para cambiar que cierto commit aparezca como ultimo commit: (ADEMAS ELIMINA LOS COMMIT QUE SA SALTA)
+git reset --hard HEAD (APARCE EL ULTIMO COMMIT COMO ULTIMO si no se especifica ~0)
+
+*para cambiar que cierto commit aparezca como ultimo commit: (ELIMINA LOS COMMIT QUE SA SALTA)
 git reset --hard HEAD~0
 git reset --hard HEAD~1
-ó
-git reset --hard HEAD~7da1fb1 
-ó para eliminar de un commit hasta otro:
-git reset --hard 7da1fb1~1 
-git log --oneline
 
-deshacer commit sin perder cambios actuales:
-git status
-git commit -am "ultimos cambios"
-git log --oneline
+ó
+
+git reset --hard HEAD~7da1fb1 (ELIMINA LOS COMMIT QUE SA SALTA)
+***********************************************************************
+DESHACER COMMIT (NO ELIMINA LOS COMMIT QUE SA SALTA)
+
+//deshacer commit sin perder cambios actuales: Regresa los comit a Untracked files
 git reset HEAD~1
-git log --oneline
-git status
+
+***********************************************************************
+CHECKOUT SALTAR A OTRO COMMIT (NO ELIMINA) 
+(estaremos en otro punto virtual HEAD detached from 735c5bc)
+despues de hacer este tipo de checkout los commits serán referenciados a este HEAD
 
 // Volver a un commit anterior (NO ELIMINA)
-git status
-git add .
-git commit -m "ultimos cambios"
-git status
-git log
-git status
-git add index.html
-git commit -m "cambios en el index"
-git status
-git commit -am "cambios en pagina 1"
-git status
-git log --oneline
-
 git checkout 81fed54
 git log --oneline
 git checkout 735c5bc
-
 git log
 git status
 
-regresarlo a como estaba por defecto (master): (Cuando se hace un commit en otro commit que se ha seleccionado con git checkout 735c5bc)
-git status
 git reset HEAD
-se hace un cambio en el archivo
-git status
-git commit -am "cambio en el index" (se genero una nueva rama desde el commit 735c5bc)
-git status (aparce que el HEAD ha sido detectado desde 735c5bc )
-git log --oneline (aparce un nuevo commit en este caso bb79f04)
-git checkout master (para regresar a la rama master) (aparece advertencia de que si se quiere mantener el commit bb79f04 se debe crear una rama)
+***********************************************************************
+GIT CHECKOUT MASTER
+
+regresarlo a como estaba por defecto (master): (Cuando se hace un commit en otro commit que se ha seleccionado con git checkout 735c5bc)
+
+git checkout master (para regresar a la rama master) (aparece advertencia de que si se quiere mantener el commit bb79f04 se debe crear una rama con git branch <new-branch-name> bb79f04 )
 
 git branch pruebas bb79f04 (crea una nueva rama)
 git branch (muestra las ramas que tenemos)
 git checkout pruebas (cambia a la rama 'pruebas')
 
 git log (muestra los commit que se hicieron en esta nueva rama)
-
-
+***********************************************************************
 //Buscar commit
-git log
-git log --oneline
 git log --grep=iniciales (busca un commit que contiene la palabra 'iniciales')
 git log -S 'Pagina web HTML'  (muestra el commit donde tiene el texto dentro del archivo
+***********************************************************************
+RAMAS
 
-// Ramas
-git branch list (crear la rama list)
+// Crear Ramas
+git branch list (rama list)
 git brach contacto (crea la rama contacto)
 git checkout contact ( cambia a la rama contacto)
-git log --oneline
-git status
-	contacto.html
-git add .
-git status
-	new file: contacto.html
-git commit -m  "Pagina de contacto"
+
 git log --oneline
 	c52143d Pagina de contacto
 	bb79f04 cambio en el index
@@ -187,48 +167,40 @@ git log -- oneline (Notar como difiere los commits de la rama contacto)
 
 ls -lh (no muestra contacto.html)
 
-borrar una rama:
+// Borrar una rama:
 git branch
-git branch -d list (muestra que no esta merged)
-git branch -D list (borra la rama aun que no este merged)
+git branch -d contacto (muestra que no esta merged)
+git branch -D contacto (borra la rama aun que no este merged)
 
+
+// Cambio de  rama:
 Cuando se ha realizado un cambio en algun archivo y se quiere cambiar de rama, se tiene que commitear primero:
-git status
-git checkout contacto (cambia a la rama contacto)
- *se hacen cambios en el archivo contacto.html
-git checkout master (muestra que se deben commitear primero los cambios en contacto.html antes de cambiar a la rama master)
+
+*git checkout master (muestra que se deben commitear primero los cambios en contacto.html antes de cambiar a la rama master)
 git status
 git commit -am  "Pagina de contacto acabada"
 git checkout master (ahora si se puede ir a la rama de contacto)
 
-para convinar las ramas (estamos en la rama master y queremos unir de la rama contacto):
-git log --oneline (no esta los comits:
-			c52143d Pagina de contacto
-			bb79f04 cambio en el indexen la rama principal)
+//Combinar
+para combinar las ramas (estamos en la rama master y queremos unir de la rama contacto):
 git merge contacto (actualiza los commits y los archivos)
 git status
 git log --oneline (ya se muestran todos los commits)
-
 ls -lh muestra todos los archivos estando en la rama master
 
-
-Si quiero actualizar la rama pruebas como esta la master:
+Si quiero actualizar la rama pruebas como esta la master: (estamos en la rama pruebas)
 git checkout pruebas (se pasa a la rama pruebas)
 git merge master (se merged)
 
 git help merge
 git help branch
 
+***********************************************************************
+STACH
+
 //Stach
 Estamos en la rama de pruebas y nos solicitan cambios en la rama de contacto
-git status
-	modified: index.html
-git checkout contacto (nos cambia  a la rama de contacto) pero nos llevamos los cambios en los que estaba trabajando en index.html)
-git status (pero nos llevamos los cambios en los que estaba trabajando en index.html en la rama de pruebas)
 
-volvemos a la rama de pruebas
-git checkout pruebas
-(para cambiar a la rama contacto sin llevaros los cambios y sin perder los cambios para volver despues y seguir trabajando)
 git stash (guarda en memoria temporal para despues seguir trabajando WIP)
 git status (no lo muestra por que se guardo en stash)
 git stash show (muestra lo que se guardo en WIP)
@@ -252,10 +224,11 @@ git commit -am "cambios en pruebas"
 git log --oneline
 
 
-// Limpiar stash
+// BORRAR stash
 git stash clear
 git stash show
 
+***********************************************************************
 
 //Cherry Pick
 hacemos cambios en el codigo(estamos en rama pruebas):
@@ -283,80 +256,14 @@ git log --oneline
 
 COMO LLEVARSE UN COMMIT ESPECIFICO A OTRA RAMA SIN HACER UN MERGE?
 git branch (nos enlista las ramas que tenemos)
-nos cambiamos a la rama master
 git checkout master (nos cambia a la rama master)
 git cherry-pick b3565d9 (se pone el identificador del commit que queremos llevar a la rama en lo que estamos)
-git log --oneline 
-	9f80c04 Cambios en los archivos principales
-	87d3ce2 Pagina de contactos acabada
-	c52143d Pagina de contacto
-	bb79f04 cambio en el index
-	735c5bc Camios en la Pagina 1
-	530f69b Cambios en el index
-	e9239c7 Ultimos cambios
-	81fed54 contienen todos los archivos iniciales
 
-Ejemplo creando un nuevo archivo mi_configuracion.txt (estamos en la rama pruebas)
-git status (aparece el fichero que aun no esta trackeado para commitearlo)
-	mi_configuracion.txt (en rojo)
-git add mi_configuracion.txt (agregar para poder commitearlo)
-git commit -m "nuevo archivo mi config" 
-git log --oneline (muestar los commits)
-	
-	6663f88 Nuevo archivo mi config
-	b3565d9 Cambios en los archivos principales
-	aea71e4 Cambios en pruebas
-	87d3ce2 Pagina de contactos acabada
-	c52143d Pagina de contacto
-	bb79f04 cambio en el index
-	735c5bc Camios en la Pagina 1
-	530f69b Cambios en el index
-	e9239c7 Ultimos cambios
-	81fed54 contienen todos los archivos iniciales
 
-ls -lh (no aparece el archivo)
-git log --oneline (no aparece tampoco el commit)
-
-nos vamos a la rama contacto:
-git cheakout contacto
-git log --oneline
-
-	9bbcbb6 Formulario de contacto 
-	87d3ce2 Pagina de contactos acabada
-	c52143d Pagina de contacto
-	bb79f04 cambio en el index
-	735c5bc Camios en la Pagina 1
-	530f69b Cambios en el index
-	e9239c7 Ultimos cambios
-	81fed54 contienen todos los archivos iniciales
-
-git cherry-pick 6663f88 
-git log --oneline
-
-	ca14cc3 Nuevo archivo mi config
-	9bbcbb6 Formulario de contacto 
-	87d3ce2 Pagina de contactos acabada
-	c52143d Pagina de contacto
-	bb79f04 cambio en el index
-	735c5bc Camios en la Pagina 1
-	530f69b Cambios en el index
-	e9239c7 Ultimos cambios
-	81fed54 contienen todos los archivos iniciales
-
-git cheakout master 
-git log --oneline (no parace en master por que solo se hizo en contacto
-
+***********************************************************************
 
 // Como resolver conflictos
 estamos en master
-git status
-	modified: index.html (en rojo)
-git commit -am "commit en master"
-git checkout pruebas (ir a la rama de pruebas)
-*se hacen cambios en index.html
-git commit -am "commit en pruebas"
-git branch (muestra la ramas)
-
 git merge master (aparece que hay un conflicto en index.html merge failed)
 
 se actualiza en el archivo index.html
@@ -373,10 +280,10 @@ git commit -m "[MERGE CONFLICT SOLVED] Cambios en el h1 del index"
 git log
 git status
 
-
+***********************************************************************************************************
+***********************************************************************************************************
 //Github
 crear un repositorio: testeando
-
 
 …or create a new repository on the command line
 echo "# Pruebas-JS" >> README.md
@@ -388,8 +295,6 @@ git push origin master
 
 	Username for 'https://github.com': IrvinCuriel
 	Password for 'https://IrvinCuriel@github.com':xxxx
-
-
 
 Si se crean ramas en remoto (github) y se quiere llevar las ramas al repositorio local:
 git fecth --all (baja todas las ramas del remoto) 
@@ -403,11 +308,11 @@ git checkout master
 git status
 git log --oneline
 
-Caso: se realiza combio en la rama master del archivo contacto.html desde remoto github
+Caso pull: se realiza cambio en la rama master del archivo contacto.html desde remoto github
 como bajar los cambios para tenerlo en local
 git pull origin master (pull y se baja la rama master)
 
-Caso: subir algo a github desde local
+Caso push: subir algo a github desde local
 git status
 git add .
 git commit -m "cambios en contacto"
@@ -423,20 +328,8 @@ git push origin master
  2000  git commit -m "Subiendo los ejercicios de aprendizaje en php"
  2001  git status
  2002  git log --oneline
--------------------------------
- 2003  git branch list
- 2004  git branch
- 2005  git branch -D list
- 2006  git branch
--------------------------------
  2007  git remote add origin https://github.com/IrvinCuriel/php-ejercicios.git //solo se hace la primera vez...
  2008  git push origin master
-
-RECORDAR QUE EL COMANDO PULL PARA DESCARGAR A LOCAL
-***********************************************************************************************************
-
-push para subir cambios locales al servidor github
-pull para descargar los cambios de github al repositorio local
 
 ***********************************************************************************************************
 
@@ -452,4 +345,27 @@ AGREGADO 12-NOV-21
  1709  git checkout master
  1710  git push origin master
  1711  git pull origin master
+ 
+ 
+ ***********************************************************************************************************
+GIT LAB
+https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html
 
+git clone git@gitlab.com:gitlab-tests/sample-project.git
+cd sample-project
+
+
+git --version
+git config --global user.name "your_username"
+git config --global user.email "your_email_address@example.com"
+git config --global --list
+git init
+git pull origin
+
+***********************************************************************************************************
+ 
+ 
+***********************************************************************************************************
+  
+  
+***********************************************************************************************************
