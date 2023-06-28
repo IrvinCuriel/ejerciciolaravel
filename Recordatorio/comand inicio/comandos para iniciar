@@ -3,6 +3,80 @@ npm run dev
 npm run watch
 php artisan serve
 
+-----------------------------------------------------------------------------
+COMPOSER
+es un sistema de gestión de paquetes para programar en PHP el cual provee los formatos estándar necesarios para manejar dependencias y librerías de PHP. 
+
+CLI ARTISAN
+herramienta interfaz de línea de comandos 
+php artisan list
+php artisan help nombre-comando
+php artisan nombre-comando -h
+https://styde.net/artisan-interfaz-linea-comandos-de-laravel/
+
+NPM
+son las siglas de node package manager y básicamente es el manejador de paquetes de JavaScript, así como lo es Composer para PHP, es decir, nos permite instalar paquetes que se ejecutan del lado del cliente (frontend).
+
+dependencias de desarrollo.  npm install <nombre_paquete> --save-dev
+dependencias de la aplicación. npm install <nombre_paquete>
+https://styde.net/como-instalar-paquetes-con-npm-en-laravel/
+
+-----------------------------------------------------------------------------
+
+composer create-project laravel/laravel=^7 pruebaTecnica --prefer-dist
+composer create-project laravel/laravel=^7 galeriaImagenes --prefer-dist
+composer install
+php artisan serve 
+
+npm install
+npm run watch
+
+composer require laravel/ui
+composer require laravel/ui:^2.4
+php artisan ui:auth
+
+php artisan ui bootstrap
+npm install
+npm run dev
+
+npm install sweetalert2
+Laravel recomienda utilizar el archivo resources/js/bootstrap.js
+window.swal = require('sweetalert2');
+npm run dev
+
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<script src="{{ asset('js/app.js') }}"></script>
+
+swal('Hola, soy un alert hecho con SweetAlert2');
+
+-----------------------------------------------------------------------------
+https://www.youtube.com/watch?v=nA76PCuf3GE
+
+-----------------------------------------------------------------------------
+
+******************LARAVEL VUE ****************************************
+PROPS
+
+https://www.youtube.com/watch?v=FeLblUOBx-U
+
+******************React ****************************************
+https://es.reactjs.org/docs/create-a-new-react-app.html
+
+React es una biblioteca Javascript de código abierto diseñada para crear interfaces 
+de usuario con el objetivo de facilitar el desarrollo de aplicaciones en una sola página.
+
+Basado en componntes (funciones en java script) ó hooks, etc
+Se puede agregar caracteristicas como el state
+
+NextJS SSR (Server side Rendering)
+Create React App
+MERN
+Gatsby SSR (Server side Rendering)
+
+Para aplicaciones pequeñas Hooks o context
+
+******************Create React App *****************************
+Client Side Rendering (navegador se encarga de renderizar html)
 ******************React MERN************************************
 1. se  crear carpeta MERN tasks y dentro se realiza:
 
@@ -42,10 +116,41 @@ app.listen(PORT, () => {
 	console.log(`El servidor esta funcionando en el puerto ${PORT}`);
 });
 
+----------------------------------------------------------------
+Stack 
+conjunto de herramientas para crear una app
+MERN
+comunicación entre Backend y frontend con JSON y oeticiones HTTP
+----------------------------------------------------------------
+Node.js (back)
+Es un entorno de ejecución para javascript
+librerias por npm
+----------------------------------------------------------------
+React (front)
+----------------------------------------------------------------
+MongoDB (front)
+ORM mongoose
+----------------------------------------------------------------
+Express.js 
+Herramienta para crear un servidor en javaScript
 
 ******************React-Redux************************************
-npx create-react-app crudereux 
+npx create-react-app cruderedux 
 npm start
+
+----------------------------------------------------------------
+Redux
+Redux es una librería JavaScript de código abierto para el manejo del estado de las aplicaciones. 
+Solo tiene un state principal 
+Para aplicaciones grandes 
+Para aplicaciones pequeñas Hooks o context
+STORE contiene el state
+DISPATCH Ejecuta una accion del state
+ACTION onjetos js, tienen tipo y payload
+SUBSCRIBE similar a un event listener para el state
+REDUCERS funciones que saben que hacer con las acciones y el payload
+
+----------------------------------------------------------------
 
 ******************React Next.JS******************************
 npx create-next-app pruducthuntnex
@@ -54,10 +159,103 @@ npm run dev
 npm run build (para produccion)
 npm run start (para produccion) vs npm run dev
 
+https://dreams-853f2.web.app/
+gmail
+Swa0581p
+
+----------------------------------------------------------------
+Next.js
+Framework en Reack para creación de Sitios y Aplicaciones
+SSR (Server side Rendering) (el servidor se encarga de generar el html)
+SSG (Static Site Generation)
+Routing incluido
+Code Splitting y Lazy Loading en componentes
+Cuenta con Routing en base a los archivos
+soporte a css
+hot Reoload
+URLs limpias
+Opcion para portafoloios
+----------------------------------------------------------------
+Servicios serverless
+google Firebase
+firebase hosting
+----------------------------------------------------------------
 
 **********************PHP LAMP********************************
+admin
 admin_luis
 http://localhost:8080/IntegracionSys/adminalmacen/login.php
 
+http://127.0.0.1/IntegracionSys/adminalmacen/login.php
 
+******************************************************
+
+IntegracionSys
+admin
+admin_luis
+
+nota
+admin
+admin-principal
+admin_luis_1234
+
+Mern task
+correo@correo
+123456
+
+adminos
+http://127.0.0.1:8000/login
+http://127.0.0.1:8000/home
+correo@correo.com
+12345678
+
+
+
+
+----------------------------------------------------------------
+SSR (Server side Rendering) en Vue.js se llaman Nuxt.js
+SSR (Server side Rendering) en Angular se llaman Aplicaciones universales con angular
+----------------------------------------------------------------
+Web Service
+Permite intercambiar datos entre aplicaciones vía Web usualmente utilizando HTTP
+Estandares XML, SOAP, REST y GRAPHQL
+
+API
+Interfaz de programacion de aplicaciones
+Funciones o metodos que ofrece una libreria para ser utilizadas por otro software y acceder a sus recursos
+ejemplo: google maps api
+
+TODOS LOS WEB SERVICES SON API'S PERO NO TODAS LAS API'S SON WEB SERVICES
+
+REST
+Es un patron para hacer apis representational state trasfer
+Define como se accede a los recursos de una api existente
+Puede ser diseñada en cualquier lenguaje (movil o web)
+responden a los request de http: GET, POST, PUT(actualiza total), PATCH(actualiza parcial) Y DELETE
+
+REST API
+Cuentan con endpoints url's para realizar las operaciones CRUD. rest propone lo siguiente:
+
+GET /clientes
+GET /clientes/10
+POST /clientes
+PUT /clientes/10
+PUT /clientes/10
+
+los datos se envian aparte
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+
+
+
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+
+
+
+----------------------------------------------------------------
+
+----------------------------------------------------------------
 
