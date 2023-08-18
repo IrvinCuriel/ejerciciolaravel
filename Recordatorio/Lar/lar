@@ -5577,3 +5577,65 @@ https://www.youtube.com/watch?v=i9P1TS8z29A
 Revisar
 https://www.youtube.com/watch?v=3nLdc0NBiH8&list=PLR3-1he9bGShZT1FUMnVogdYNLbcK_Vp3&index=2
 ***************************************************************************************************************************************
+              //PARTICIPANTES
+
+              $participantes = [];
+              $a = 0;
+              foreach ($request->all() as $key => $value) {
+                if(str_contains($key, 'nombre_usuario')){
+                  array_push($participantes, array($key => $value));
+                }
+                if(str_contains($key, 'nombre_usuario')){
+                  array_push($participantes[$a], $value);
+                }
+                if(str_contains($key, 'apaterno_usuario')){
+                  array_push($participantes[$a], $value);
+                }
+                if(str_contains($key, 'amaterno_usuario')){
+                  array_push($participantes[$a], $value);
+                }
+                if(str_contains($key, 'edad_usuario')){
+                  array_push($participantes[$a], $value);
+                }
+                if(str_contains($key, 'fecha_de_nacimiento_usuario')){
+                  array_push($participantes[$a], $value);
+                }
+                if(str_contains($key, 'pais_usuario')){
+                  array_push($participantes[$a], $value);
+                }
+                if(str_contains($key, 'ciudad_usuario')){
+                  array_push($participantes[$a], $value);
+                }
+                if(str_contains($key, 'telefono_usuario')){
+                  array_push($participantes[$a], $value);
+                }
+                if(str_contains($key, 'codigo_usuario')){
+                  array_push($participantes[$a], $value);
+                }
+                if(str_contains($key, 'email_usuario')){
+                  array_push($participantes[$a], $value);
+                }
+                if(str_contains($key, 'tipo_de_enfoque')){
+                  array_push($participantes[$a], $value);
+                }
+                if(str_contains($key, 'servicio_de_interes')){
+                  array_push($participantes[$a], $value);
+                }
+                if(str_contains($key, 'origen')){
+                  array_push($participantes[$a], $value);
+                }
+                if(str_contains($key, 'especificar_origen')){
+                  array_push($participantes[$a], $value);
+                }
+                if(str_contains($key, 'descripcion_necesidad_usuario')){
+                  array_push($participantes[$a], $value);
+                  $a++;
+                }
+      
+              }
+              /*
+              echo "<br>";
+                  var_dump($participantes);
+              echo "</br>";
+              dd($participantes);
+              */
